@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: battery_archive
+    description: Battery cell time sereis data from www.batteryarchive.org
+    database: raw
+    schema: battery_archive
+    loader: manual
+
+    tables:
+        - name: time_series

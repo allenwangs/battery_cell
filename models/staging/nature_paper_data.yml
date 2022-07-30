@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: nature_paper_data
+    description: Data from nature paper https://data.matr.io/1/projects/5c48dd2bc625d700019f3204
+    database: raw
+    schema: nature_paper_data
+    loader: manual
+
+    tables:
+        - name: time_series

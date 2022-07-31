@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: fct_time_series
+    description: Time series data about battery cell testing. 
+    columns:
+      - name: file_name
+        description: File name
+        tests:
+            - not_null
+ 
+      - name: data_point
+        description: ""
+ 
+      - name: test_time
+        description: ""
+ 
+      - name: date_time
+        description: ""
+ 
+      - name: step_time
+        description: ""
+ 
+      - name: step_index
+        description: ""
+
+      - name: cycle_index
+        description: Test cycle
+        tests:
+            - not_null
+ 
+      - name: cell_current
+        description: Cell current (mA)
+        tests:
+            - not_null
+ 
+      - name: voltage
+        description: Cell voltage (V)
+        tests:
+            - not_null
+ 
+      - name: charge_capacity
+        description: Accumulated charge capacity in this cycle (Ah)
+        tests:
+            - not_null
+ 
+      - name: discharge_capacity
+        description: Accumulated discharge capacity in this cycle (Ah)
+        tests:
+            - not_null
+ 
+      - name: charge_energy
+        description: Accumulated charge energy in this cycle (Wh)
+ 
+      - name: discharge_energy
+        description: Accumulated discharge energy in this cycle (Wh)
+ 
+      - name: dv/dt
+        description: ""
+ 
+      - name: internal_resistance
+        description: ""
+ 
+      - name: temperature
+        description: Cell temperature (℃)
+ 
+      - name: aux_voltage
+        description: ""
+
+      - name: step_type
+        description: Step type can be `charge`, `discharge`, and `idle`
+

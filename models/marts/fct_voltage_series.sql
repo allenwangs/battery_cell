@@ -106,7 +106,8 @@ remove_real_data as (
         file_name,
         cycle_index,
         voltage,
-        discharge_capacity_interpolate
+        voltage_source,
+        discharge_capacity_interpolate as discharge_capacity
     from interpolate_discharge_capacity
     where voltage_source = 'interpolate'
 ),

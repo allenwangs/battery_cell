@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fct_voltage_series
+    description: >
+      Cell discharge voltage curve for cycle-to-cycle evolution of Q(V), the discharge voltage curve as a function of voltage for a given cycle. 
+      Interpolate the original time series data to identical voltage range for every cycle. (2.000, 2.001, 2.002, ..., 3.499, 3.500V)
+      
+    columns:
+      - name: file_name
+        description: File name of data source
+        tests:
+          - not_null
+
+      - name: cycle_index
+        description: Test cycle index
+        tests:
+          - not_null
+
+      - name: voltage
+        description: Voltage range for every cycle from (2.000, 2.001, 2.002, ..., 3.499, 3.500V)
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 2.000
+              max_value: 3.500
+
+      - name: discharge_capacity
+        description: Discharge capacity interpolate to identical voltage range
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0.000
+              max_value: 1.500

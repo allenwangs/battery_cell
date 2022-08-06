@@ -37,7 +37,7 @@ get_each_cycle_voltage_range as (
         max(voltage) as voltage_max
 
     from discharge_time_series
-    group by file_name, cycle_index
+    group by _DBT_SOURCE_RELATION, file_name, cycle_index
 ),
 
 each_cycle_voltage_spine as (

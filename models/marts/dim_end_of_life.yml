@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_end_of_life
+    description: Dimension table for cell end of life information. Cycle end of life is define as 80% of nominal capacity (80% of 1.1Ah = 0.88Ah)
+    columns:
+      - name: file_name
+        description: File name
+        tests:
+            - not_null
+            - unique
+ 
+      - name: cycle_index
+        description: Cycle index when battery cell meets end-of-life
+        tests:
+            - not_null
+            
+      - name: discharge_capacity
+        description: Discharge capacity when battery cell meets end-of-life
+        tests:
+            - not_null
+ 

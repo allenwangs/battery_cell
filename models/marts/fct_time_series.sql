@@ -4,20 +4,20 @@
     )
 }}
 
-with stg_nature_paper_time_series as (
-    select * from {{ ref('stg_nature_paper_time_series') }}
+with stg_time_series_union as (
+    select * from {{ ref('stg_time_series_union') }}
 ),
 
 add_step_type as (
     select
-        stg_nature_paper_time_series.*,
+        stg_time_series_union.*,
         case
             when abs(cell_current) < pow(10, -6) then 'idle'
             when cell_current > 0 then 'charge'
             when cell_current < 0 then 'discharge'
             else null
         end as step_type
-    from stg_nature_paper_time_series
+    from stg_time_series_union
 ),
 
 final as (

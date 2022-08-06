@@ -1,11 +1,5 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
-
 with fct_structure as (
-    select * from {{ ref('fct_structured') }}
+    select * from {{ ref('fct_time_series') }}
 ),
 
 groupby_cycles as (
